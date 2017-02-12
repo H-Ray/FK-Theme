@@ -29,6 +29,7 @@
 
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'htb.scss.css' | asset_url | stylesheet_tag }}
 
   <!-- Header hook for plugins ================================================== -->
   {{ content_for_header }}
@@ -157,12 +158,12 @@
               Site name gets precedence with H1 tag on homepage, div on other pages.
             {% endcomment %}
             {% if template == 'index' %}
-              <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+              <h1 class="site-header_logo" itemscope itemtype="http://schema.org/Organization">
             {% else %}
-              <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+              <div class="h1 site-header_logo" itemscope itemtype="http://schema.org/Organization">
             {% endif %}
               {% if settings.logo_use_image %}
-                <a href="/" itemprop="url" class="site-header__logo-link">
+                <a href="/" itemprop="url" class="site-header_logo-link">
                   <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
                 </a>
               {% else %}
@@ -212,10 +213,6 @@
                 {% endif %}
               </div>
             {% endif %}
-
-            <div class="site-header__search">
-              {% include 'search-bar' %}
-            </div>
           </div>
         </div>
 
